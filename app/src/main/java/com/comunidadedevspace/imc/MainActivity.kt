@@ -1,5 +1,6 @@
 package com.comunidadedevspace.imc
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -14,7 +15,6 @@ class MainActivity : AppCompatActivity() {
 
         val edtPeso = findViewById<TextInputEditText>(R.id.edt_peso)
         val edtAltura = findViewById<TextInputEditText>(R.id.edt_altura)
-
         val btnCalcular = findViewById<Button>(R.id.btn_calcular)
 
         btnCalcular.setOnClickListener {
@@ -29,6 +29,11 @@ class MainActivity : AppCompatActivity() {
             } else {
                 // navegar para a próxima tela
                 val imc = peso.toFloat() / (altura.toFloat() * altura.toFloat())
+
+                val intent = Intent(this, ResultActivity::class.java)
+                intent.putExtra(KEY_RESULT_IMC, imc)
+                startActivity(intent)
+
                 println("pesoa e altura e imc " + peso + altura + imc)
 
             }
