@@ -8,6 +8,8 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
+fun calcularIMC(peso: Float, altura: Float): Float = peso/ (altura * altura)
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,13 +30,11 @@ class MainActivity : AppCompatActivity() {
                     Snackbar.LENGTH_LONG).show()
             } else {
                 // navegar para a próxima tela
-                val imc = peso.toFloat() / (altura.toFloat() * altura.toFloat())
+                val imc = calcularIMC(peso.toFloat(), altura.toFloat())
 
                 val intent = Intent(this, ResultActivity::class.java)
                 intent.putExtra(KEY_RESULT_IMC, imc)
                 startActivity(intent)
-
-                println("pesoa e altura e imc " + peso + altura + imc)
 
             }
 

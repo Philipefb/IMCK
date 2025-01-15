@@ -24,19 +24,27 @@ class ResultActivity : AppCompatActivity() {
 
         tvResult.text = result.toString()
 
-        var classificacao =if (result <= 18.5) {
-            "MAGREZA"
-        } else if(result > 18.5 && result <= 24.9) {
-            "NORMAL"
-        } else if (result > 25 && result <= 29.9) {
-            "SOBREPESO"
-        } else if (result > 30 && result <= 39.9) {
-            "OBESIDADE"
-        } else {
-            "OBESIDADE GRAVE"
+        when {
+            result <= 18.5 -> {
+                tvClassificacao.text = "MAGREZA"
+                tvClassificacao.setTextColor(getColor(R.color.IMC_MAGREZA))
+            }
+            result in 18.5..24.9 -> {
+                tvClassificacao.text = "NORMAL"
+                tvClassificacao.setTextColor(getColor(R.color.IMC_NORMAL))
+            }
+            result in 25.0..29.9 -> {
+                tvClassificacao.text = "SOBREPESO"
+                tvClassificacao.setTextColor(getColor(R.color.IMC_SOBREPESO))
+            }
+            result in 30.0..39.9 -> {
+                tvClassificacao.text = "OBESIDADE"
+                tvClassificacao.setTextColor(getColor(R.color.IMC_OBESIDADE))
+            }
+            else -> {
+                tvClassificacao.text = "OBESIDADE GRAVE"
+                tvClassificacao.setTextColor(getColor(R.color.IMC_MAGREZA))
+            }
         }
-
-        tvClassificacao.text = classificacao
-
     }
 }
