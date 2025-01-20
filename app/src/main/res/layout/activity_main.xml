@@ -50,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Button"
+        android:text="Calcular"
         android:background="@drawable/rounded_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -96,6 +96,7 @@
             android:maxLength="6"
             android:background="@drawable/rounded_bg"
             android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
             android:hint="Digite sua altura ex: 1.81" />
     </com.google.android.material.textfield.TextInputLayout>
 
